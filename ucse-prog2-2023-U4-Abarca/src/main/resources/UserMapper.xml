@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+    <resultMap id="UserResultMap" type="User">
+        <id property="id" column="id" />
+        <result property="nombre" column="nombre" />
+        <result property="edad" column="edad" />
+    </resultMap>
+
+    <select id="getUserById" resultMap="UserResultMap">
+        SELECT * FROM usuarios WHERE id = #{id}
+    </select>
+
+    <select id="getAllUsers" resultMap="UserResultMap">
+        SELECT * FROM usuarios
+    </select>
+
+    <insert id="createUser" parameterType="User">
+        INSERT INTO usuarios (nombre, edad) VALUES (#{nombre}, #{edad})
+    </insert>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE usuarios SET nombre = #{nombre}, edad = #{edad} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM usuarios WHERE id = #{id}
+    </delete>
+</mapper>
