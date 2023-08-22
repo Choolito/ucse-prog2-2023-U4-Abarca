@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class User {
     int id;
@@ -9,9 +9,6 @@ public class User {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;

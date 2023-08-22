@@ -1,11 +1,13 @@
-package org.example;
+package org.example.mapper;
+
+import org.example.model.User;
 
 import java.util.List;
 
 public interface UserMapper {
-    void createUser(User user);
-    User getUserById(int id);
     List<User> getAllUsers();
+    User getUserById(int id);
+    void insertUser(User user);
     void updateUser(User user);
     void deleteUser(int id);
 }
